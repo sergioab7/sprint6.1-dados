@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { register } from "../controllers/auth.controller";
+import { validateToken } from "../middlewares/validateJWT";
 
 const router = Router();
 

@@ -2,9 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const players_controller_1 = require("../controllers/players.controller");
+const validateJWT_1 = require("../middlewares/validateJWT");
 const router = (0, express_1.Router)();
-router.get('/get-all-players', players_controller_1.getAllPlayer);
-router.get('/get-player/:id', players_controller_1.getOnePlayer);
-router.put('/update-player/:id', players_controller_1.updateName);
-router.delete('/delete-player/:id', players_controller_1.deletePlayer);
+router.get('/get-all-players', validateJWT_1.validateToken, players_controller_1.getAllPlayer);
+router.get('/get-player/:id', validateJWT_1.validateToken, players_controller_1.getOnePlayer);
+router.put('/update-player/:id', validateJWT_1.validateToken, players_controller_1.updateName);
+router.delete('/delete-player/:id', validateJWT_1.validateToken, players_controller_1.deletePlayer);
 exports.default = router;
