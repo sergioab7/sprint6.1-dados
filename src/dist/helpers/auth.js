@@ -43,11 +43,11 @@ class Auth {
         return __awaiter(this, void 0, void 0, function* () {
             const playerDB = yield Player_1.Player.findOne({ email: this.email });
             if (!playerDB) {
-                return '[-] Email no existe';
+                return 'Wrong email';
             }
             const validatePassword = yield Player_1.Player.comparePassword(this.password, playerDB.password);
             if (!validatePassword) {
-                return "[-] Password incorrecta";
+                return "Password incorrecta";
             }
             const jwt = (0, jsonwebtoken_1.sign)({ id: playerDB.id }, config_1.default.jwtSecret, {
                 expiresIn: '4h'

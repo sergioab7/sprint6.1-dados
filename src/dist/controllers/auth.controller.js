@@ -38,8 +38,28 @@ const register = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 exports.register = register;
 const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        const { email, password } = req.body;
+        const player = new auth_1.default(email, password);
+        const login = yield player.login();
+        if (login === 'Wrong email') {
+            return res.status(400).json({
+                msg: '[-] Email es incorrecto.'
+            });
+        }
+        if (login === 'Password incorrecta') {
+            return res.status(400).json({
+                msg: '[-] Password es incorrecto.'
+            });
+        }
+        res.status(201).json({
+            msg: '[+] Autenticación correcta.',
+            jwt: login
+        });
     }
     catch (error) {
+        return res.status(500).json({
+            msg: '[-] Error 500 - Internal Server Error',
+        });
     }
 });
 exports.login = login;

@@ -39,12 +39,12 @@ class Auth{
         const playerDB = await Player.findOne({email:this.email});
 
         if(!playerDB){
-            return '[-] Email no existe';
+            return 'Wrong email';
         }
 
         const validatePassword = await Player.comparePassword(this.password, playerDB.password);
         if(!validatePassword){
-            return "[-] Password incorrecta"
+            return "Password incorrecta"
         }
 
         const jwt = sign({id:playerDB.id}, config.jwtSecret as string, {
