@@ -48,7 +48,12 @@ npm run dev
 
 ![logeodados](https://github.com/sergioab7/sprint6.1-dados/assets/10132565/6e0ac7d1-be37-4865-95e2-6db599355754)
 
+## Docker
 
+```
+docker build . -t node-api-sprint6:latest
+docker run -p 3000:3000 --env-file=./.env  node-api-sprint6
+```
 
 ### Rutas de la aplicación 🚏
 
