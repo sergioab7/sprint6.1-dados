@@ -22,7 +22,7 @@ class UpdatePlayerName {
                 firstName: this.firstName,
                 lastName: this.lastName
             };
-            const player = yield Player_1.Player.findOneAndUpdate({ _id: this.id }, update);
+            const player = yield Player_1.Player.findOneAndUpdate({ _id: this.id }, update, { new: true });
             return player;
         });
     }

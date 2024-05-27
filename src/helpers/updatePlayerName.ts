@@ -20,8 +20,7 @@ class UpdatePlayerName{
             lastName: this.lastName
         }
 
-        const player: IPlayer = await Player.findOneAndUpdate({_id:this.id}, update) as IPlayer;
-
+        const player: IPlayer = await Player.findOneAndUpdate({_id:this.id}, update, {new:true}) as IPlayer;
         return player;
     }
 }

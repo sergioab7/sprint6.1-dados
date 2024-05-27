@@ -20,7 +20,7 @@ export const getAllPlayer = async(req:Request, res:Response) => {
 
 export const getOnePlayer = async(req:Request, res:Response) => {
     try {
-        const id = req.params.id;
+        const {id} = req.params;
         const player = await new GetPlayer(id);
         const getPlayer = await player.getOnePlayer();
 
@@ -38,14 +38,15 @@ export const getOnePlayer = async(req:Request, res:Response) => {
 
 export const updateName = async(req:Request, res:Response) => {
     try {
-        const id = req.params.id;
+        const {id} = req.params;
         const { firstName, lastName} = req.body;
 
         const updatePlayerName = await new UpdatePlayerName(id, firstName, lastName);
+        await updatePlayerName.updateName()
 
         res.status(201).json({
             msg:'[+] Player Updated',
-            updatePlayerName
+            updatePlayerName,
         })
 
     } catch (error) {
@@ -58,7 +59,7 @@ export const updateName = async(req:Request, res:Response) => {
 
 export const deletePlayer = async(req:Request, res:Response) => {
     try {
-        const id = req.params.id;
+        const {id} = req.params;
         const player = await new GetPlayer(id);
 
         player.getAndDelete();

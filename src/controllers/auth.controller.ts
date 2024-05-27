@@ -44,8 +44,8 @@ export const login = async(req:Request, res:Response) => {
         }
 
         res.status(201).json({
-            msg:'[+] Autenticación correcssta.',
-            login,
+            msg:'[+] Autenticación correcta.',
+            token:login
         })
     } catch (error) {
         return res.status(500).json({

@@ -32,7 +32,7 @@ const getAllPlayer = (req, res) => __awaiter(void 0, void 0, void 0, function* (
 exports.getAllPlayer = getAllPlayer;
 const getOnePlayer = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const id = req.params.id;
+        const { id } = req.params;
         const player = yield new getPlayers_1.default(id);
         const getPlayer = yield player.getOnePlayer();
         return res.status(201).json({
@@ -49,12 +49,13 @@ const getOnePlayer = (req, res) => __awaiter(void 0, void 0, void 0, function* (
 exports.getOnePlayer = getOnePlayer;
 const updateName = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const id = req.params.id;
+        const { id } = req.params;
         const { firstName, lastName } = req.body;
         const updatePlayerName = yield new updatePlayerName_1.default(id, firstName, lastName);
+        yield updatePlayerName.updateName();
         res.status(201).json({
             msg: '[+] Player Updated',
-            updatePlayerName
+            updatePlayerName,
         });
     }
     catch (error) {
@@ -67,7 +68,7 @@ const updateName = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
 exports.updateName = updateName;
 const deletePlayer = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const id = req.params.id;
+        const { id } = req.params;
         const player = yield new getPlayers_1.default(id);
         player.getAndDelete();
         res.status(201).json({

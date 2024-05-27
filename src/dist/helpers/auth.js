@@ -52,6 +52,7 @@ class Auth {
             const jwt = (0, jsonwebtoken_1.sign)({ id: playerDB.id }, config_1.default.jwtSecret, {
                 expiresIn: '4h'
             });
+            return jwt;
         });
     }
 }

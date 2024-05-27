@@ -50,6 +50,8 @@ class Auth{
         const jwt = sign({id:playerDB.id}, config.jwtSecret as string, {
             expiresIn:'4h'
         })
+        
+        return jwt;
     }
 
 
