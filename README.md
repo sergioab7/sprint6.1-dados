@@ -24,6 +24,7 @@ _Aplicación creada para el sprint6 de IT Academy._
 ### Instalación 🔧
 ```
 npm install
+npm run build
 ```
 
 ### Variables de entorno .env 🪛
@@ -34,6 +35,7 @@ npm install
 
 ```
 npm run dev
+
 ```
 
 ## Arquitectura del proyecto 🛡
@@ -56,49 +58,51 @@ docker run -p 3000:3000 --env-file=./.env  node-api-sprint6
 ```
 
 ### Rutas de la aplicación 🚏
-
+(IT Academy dice /posts para registro, pero yo he hecho registro y login)
 _Registro - POST_
 ```
-http://localhost:3000/auth/register
+http://localhost:3000/register
 ```
 _Login - POST_
 ```
-http://localhost:3000/auth/login
+http://localhost:3000/login
 ```
+
+
 _Obtener todos los jugadores - GET_
 ```
-http://localhost:3000/players/get-all-players
+http://localhost:3000/players/
 ```
 _Obtener un jugador - GET_
 ```
-http://localhost:3000/players/get-player/:id
+http://localhost:3000/player/:id
 ```
 _Actualizar nombre y apellido de un jugador - PUT_
 ```
-http://localhost:3000/players/update-player/:id
+http://localhost:3000/players/:id
 ```
 _Borrar jugador - DELETE_
 ```
-http://localhost:3000/players/delete-player/:id
+http://localhost:3000/players/:id
 ```
 _Jugador tira los dados - POST_
 ```
-http://localhost:3000/games/player/:id
+http://localhost:3000/games/:id
 ```
 _Ranking general - GET_
 ```
-http://localhost:3000/games/ranking
+http://localhost:3000/ranking
 ```
 _Mejor jugador - GET_
 ```
-http://localhost:3000/games/better-player
+http://localhost:3000/ranking/winner
 ```
 _Peor jugador - GET_
 ```
-http://localhost:3000/games/worst-player
+http://localhost:3000/ranking/loser
 ```
 _Borrar las jugadas de un jugador - DELETE_
 ```
-http://localhost:3000/games/delete/62d874b9d1bb66e79a9e23d9
+http://localhost:3000/games/:id
 ```
 
