@@ -3,7 +3,7 @@ import Auth from "../helpers/auth";
 
 export const register = async(req:Request, res:Response) => {
     try {
-        
+        console.log("hola");
         const { firstName, lastName, email, password} = req.body;
         const date = new Date();
         const player = new Auth(email, password, firstName, lastName, date);
@@ -44,8 +44,8 @@ export const login = async(req:Request, res:Response) => {
         }
 
         res.status(201).json({
-            msg:'[+] Autenticación correcta.',
-            jwt:login
+            msg:'[+] Autenticación correcssta.',
+            login,
         })
     } catch (error) {
         return res.status(500).json({

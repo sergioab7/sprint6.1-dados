@@ -4,9 +4,12 @@ const express_1 = require("express");
 const diceGame_controller_1 = require("../controllers/diceGame.controller");
 const validateJWT_1 = require("../middlewares/validateJWT");
 const router = (0, express_1.Router)();
-router.post("/player/:id", validateJWT_1.validateToken, diceGame_controller_1.playerRollDice);
-router.get("/ranking", validateJWT_1.validateToken, diceGame_controller_1.generalRanking);
-router.get("/better-player", validateJWT_1.validateToken, diceGame_controller_1.getBetterPlayer);
-router.get("/worst-player", validateJWT_1.validateToken, diceGame_controller_1.getWorstPlayer);
+/*Jugador especifico realiza una tirada*/
+router.post("/games/:id", validateJWT_1.validateToken, diceGame_controller_1.playerRollDice);
+/*Elimina las jugadas de un jugador */
 router.delete("/delete/:id", validateJWT_1.validateToken, diceGame_controller_1.deleteGames);
+/* Zona Rankings */
+router.get("/ranking", validateJWT_1.validateToken, diceGame_controller_1.generalRanking);
+router.get("/ranking/winner", validateJWT_1.validateToken, diceGame_controller_1.getBetterPlayer);
+router.get("/ranking/loser", validateJWT_1.validateToken, diceGame_controller_1.getWorstPlayer);
 exports.default = router;

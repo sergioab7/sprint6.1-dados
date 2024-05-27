@@ -4,11 +4,17 @@ import { validateToken } from "../middlewares/validateJWT";
 
 const router = Router();
 
-router.post("/player/:id", validateToken, playerRollDice);
-router.get("/ranking", validateToken, generalRanking);
-router.get("/better-player", validateToken, getBetterPlayer);
-router.get("/worst-player", validateToken, getWorstPlayer);
+/*Jugador especifico realiza una tirada*/
+router.post("/games/:id", validateToken, playerRollDice);
+
+/*Elimina las jugadas de un jugador */
 router.delete("/delete/:id", validateToken, deleteGames);
+
+
+/* Zona Rankings */
+router.get("/ranking", validateToken, generalRanking);
+router.get("/ranking/winner", validateToken, getBetterPlayer);
+router.get("/ranking/loser", validateToken, getWorstPlayer);
 
 
 export default router;

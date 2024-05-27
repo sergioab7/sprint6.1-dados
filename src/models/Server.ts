@@ -18,7 +18,8 @@ class Server {
         error404:'*',
         games:'/games',
         auth:'/auth',
-        players:'/players'
+        players:'/players',
+        absolute:"/"
     }
 
     constructor(){
@@ -41,10 +42,10 @@ class Server {
     }
 
     routes(){
-        this.app.use(this.path.games, routerGames);
-        this.app.use(this.path.auth, routerAuth);
-        this.app.use(this.path.players, routerPlayers);
-        this.app.use(this.path.error404, routerError404);
+        this.app.use(this.path.absolute, routerGames);
+        this.app.use(this.path.absolute, routerAuth);
+        this.app.use(this.path.absolute, routerPlayers);
+        this.app.use(this.path.absolute, routerError404);
     }
 
     listen(){

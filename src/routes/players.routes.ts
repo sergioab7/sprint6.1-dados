@@ -4,10 +4,17 @@ import { validateToken } from "../middlewares/validateJWT";
 
 const router = Router();
 
+/*Listado de todos los jugadores*/
+router.get('/players', validateToken, getAllPlayer);
 
-router.get('/get-all-players', validateToken, getAllPlayer);
-router.get('/get-player/:id', validateToken, getOnePlayer);
-router.put('/update-player/:id', validateToken, updateName);
-router.delete('/delete-player/:id', validateToken, deletePlayer);
+/*Elimina las tiradas del jugador*/
+router.delete('/players/:id', validateToken, deletePlayer);
+
+/* Modifica el nombre del jugador*/
+router.put('/players/:id', validateToken, updateName);
+
+/* Te muestra un jugador pero no está en las condiciones de ITAcademy*/
+router.get('/player/:id', validateToken, getOnePlayer);
+
 
 export default router;
