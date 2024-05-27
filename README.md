@@ -42,14 +42,6 @@ npm run dev
 
 ![estructura_proyecto](https://github.com/sergioab7/sprint6.1-dados/assets/10132565/38fe816d-c6d3-4c8e-9a70-6e496300f247)
 
-## Registro:
-
-![registroappdados](https://github.com/sergioab7/sprint6.1-dados/assets/10132565/fd7d8d12-8add-4876-abc4-a8f779fcb3eb)
-
-## Login
-
-![logeodados](https://github.com/sergioab7/sprint6.1-dados/assets/10132565/6e0ac7d1-be37-4865-95e2-6db599355754)
-
 ## Docker
 
 ```
@@ -58,6 +50,20 @@ docker run -p 3000:3000 --env-file=./.env  node-api-sprint6
 ```
 
 ### Rutas de la aplicación 🚏
+
+## Funcionamiento
+1. Debes registrarte
+   ![Captura desde 2024-05-27 17-37-00](https://github.com/sergioab7/sprint6.1-dados/assets/10132565/0c889a67-6b6c-4009-9f20-a1f4acec3cd6)
+
+2. Debes loguearte y coger la clave JWT
+   ![Captura desde 2024-05-27 17-37-34](https://github.com/sergioab7/sprint6.1-dados/assets/10132565/96ba6406-7ec6-4b58-a192-1317e5179dce)
+
+3. Cuando vayas a poner el endpoint debes asegurarte poner la clave JWT en headers Authorization.
+![Captura desde 2024-05-27 17-38-14](https://github.com/sergioab7/sprint6.1-dados/assets/10132565/5fc04c3d-082f-4dd6-a7ca-6488166d05ad)
+
+4. Ya puedes jugar/probar la app
+
+   
 (IT Academy dice /posts para registro, pero yo he hecho registro y login)
 _Registro - POST_
 ```
