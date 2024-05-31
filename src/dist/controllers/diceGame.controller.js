@@ -74,7 +74,7 @@ const getWorstPlayer = (req, res) => __awaiter(void 0, void 0, void 0, function*
 exports.getWorstPlayer = getWorstPlayer;
 const deleteGames = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const id = req.params.id;
+        const { id } = req.params;
         const player = yield new diceGame_1.default(id);
         const deleteGames = yield player.deleteGames();
         res.status(201).json({

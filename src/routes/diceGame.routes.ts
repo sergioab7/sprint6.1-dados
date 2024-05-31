@@ -8,7 +8,7 @@ const router = Router();
 router.post("/games/:id", validateToken, playerRollDice);
 
 /*Elimina las jugadas de un jugador */
-router.delete("/delete/:id", validateToken, deleteGames);
+router.delete("/games/:id", validateToken, deleteGames);
 
 
 /* Zona Rankings */

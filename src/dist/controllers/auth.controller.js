@@ -16,7 +16,6 @@ exports.login = exports.register = void 0;
 const auth_1 = __importDefault(require("../helpers/auth"));
 const register = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        console.log("hola");
         const { firstName, lastName, email, password } = req.body;
         const date = new Date();
         const player = new auth_1.default(email, password, firstName, lastName, date);

@@ -42,7 +42,7 @@ class RollGame {
     ;
     static generalRanking() {
         return __awaiter(this, void 0, void 0, function* () {
-            const players = yield Player_1.Player.find({}).sort({ wonRate: -1 });
+            const players = yield Player_1.Player.find({}).sort({ wonRate: -1 }).select('-password');
             return players;
         });
     }
@@ -53,7 +53,7 @@ class RollGame {
             players.forEach(player => {
                 player.wonRate > max ? max = player.wonRate : null;
             });
-            const betterPlayer = yield Player_1.Player.findOne({ wonRate: max });
+            const betterPlayer = yield Player_1.Player.findOne({ wonRate: max }).select('-password');
             return betterPlayer;
         });
     }
@@ -64,7 +64,7 @@ class RollGame {
             players.forEach(player => {
                 player.wonRate < min ? min = player.wonRate : null;
             });
-            const worstPlayer = yield Player_1.Player.findOne({ wonRate: min });
+            const worstPlayer = yield Player_1.Player.findOne({ wonRate: min }).select('-password');
             return worstPlayer;
         });
     }

@@ -62,7 +62,7 @@ export const getWorstPlayer = async(req:Request, res:Response) => {
 
 export const deleteGames = async(req:Request, res:Response) => {
     try {
-        const id = req.params.id;
+        const {id} = req.params;
         const player = await new RollGame(id);
         const deleteGames = await player.deleteGames();
 

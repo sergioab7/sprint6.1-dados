@@ -7,7 +7,7 @@ const router = (0, express_1.Router)();
 /*Jugador especifico realiza una tirada*/
 router.post("/games/:id", validateJWT_1.validateToken, diceGame_controller_1.playerRollDice);
 /*Elimina las jugadas de un jugador */
-router.delete("/delete/:id", validateJWT_1.validateToken, diceGame_controller_1.deleteGames);
+router.delete("/games/:id", validateJWT_1.validateToken, diceGame_controller_1.deleteGames);
 /* Zona Rankings */
 router.get("/ranking", validateJWT_1.validateToken, diceGame_controller_1.generalRanking);
 router.get("/ranking/winner", validateJWT_1.validateToken, diceGame_controller_1.getBetterPlayer);

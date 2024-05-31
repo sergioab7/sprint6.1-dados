@@ -40,7 +40,8 @@ class RollGame {
     };
 
     static async generalRanking(){
-        const players = await Player.find({}).sort({wonRate:-1});
+        const players = await Player.find({}).sort({ wonRate: -1 }).select('-password');
+
         return players;
     }
 
@@ -50,7 +51,7 @@ class RollGame {
         players.forEach(player => {
             player.wonRate > max ? max = player.wonRate : null
         })
-        const betterPlayer = await Player.findOne({wonRate:max});
+        const betterPlayer = await Player.findOne({wonRate:max}).select('-password');
 
         return betterPlayer;
     }
@@ -62,7 +63,7 @@ class RollGame {
             player.wonRate < min ? min = player.wonRate : null
         });
 
-        const worstPlayer = await Player.findOne({wonRate:min});
+        const worstPlayer = await Player.findOne({wonRate:min}).select('-password');
 
         return worstPlayer;
     }

@@ -45,8 +45,11 @@ npm run dev
 ## Docker
 
 ```
-docker build . -t node-api-sprint6:latest
-docker run -p 3000:3000 --env-file=./.env  node-api-sprint6
+Dentro del directorio principal:
+docker-compose up -d
+
+Comprobamos si funciona:
+docker ps
 ```
 
 ### Rutas de la aplicación 🚏
@@ -86,6 +89,12 @@ http://localhost:3000/player/:id
 _Actualizar nombre y apellido de un jugador - PUT_
 ```
 http://localhost:3000/players/:id
+{
+   {
+	"firstName":"ejemplo_firstname",
+	"lastName":"ejemplo_lastname"
+}
+}
 ```
 _Borrar jugador - DELETE_
 ```

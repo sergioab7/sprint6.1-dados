@@ -16,9 +16,6 @@ class Server {
     constructor() {
         this.path = {
             error404: '*',
-            games: '/games',
-            auth: '/auth',
-            players: '/players',
             absolute: "/"
         };
         this.app = (0, express_1.default)();

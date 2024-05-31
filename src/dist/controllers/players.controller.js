@@ -18,13 +18,12 @@ const updatePlayerName_1 = __importDefault(require("../helpers/updatePlayerName"
 const getAllPlayer = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const getAllPlayers = yield getPlayers_1.default.getAllPlayers();
-        res.status(201).json({
+        return res.status(201).json({
             getAllPlayers
         });
     }
     catch (error) {
-        console.error(error);
-        res.status(500).json({
+        return res.status(500).json({
             msg: '[-] Error 500 - Internal Server Error'
         });
     }
@@ -40,8 +39,7 @@ const getOnePlayer = (req, res) => __awaiter(void 0, void 0, void 0, function* (
         });
     }
     catch (error) {
-        console.error(error);
-        res.status(500).json({
+        return res.status(500).json({
             msg: '[-] Error 500 - Internal Server Error'
         });
     }
@@ -53,14 +51,14 @@ const updateName = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         const { firstName, lastName } = req.body;
         const updatePlayerName = yield new updatePlayerName_1.default(id, firstName, lastName);
         yield updatePlayerName.updateName();
-        res.status(201).json({
+        return res.status(201).json({
             msg: '[+] Player Updated',
             updatePlayerName,
         });
     }
     catch (error) {
         console.error(error);
-        res.status(400).json({
+        return res.status(400).json({
             msg: '[-] Player doesnt exists'
         });
     }
@@ -71,14 +69,14 @@ const deletePlayer = (req, res) => __awaiter(void 0, void 0, void 0, function* (
         const { id } = req.params;
         const player = yield new getPlayers_1.default(id);
         player.getAndDelete();
-        res.status(201).json({
+        return res.status(201).json({
             msg: "[+] Player deleted",
             player
         });
     }
     catch (error) {
         console.error(error);
-        res.status(400).json({
+        return res.status(400).json({
             msg: '[-] Player doesnt exists'
         });
     }

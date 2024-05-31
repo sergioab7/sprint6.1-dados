@@ -3,7 +3,6 @@ import Auth from "../helpers/auth";
 
 export const register = async(req:Request, res:Response) => {
     try {
-        console.log("hola");
         const { firstName, lastName, email, password} = req.body;
         const date = new Date();
         const player = new Auth(email, password, firstName, lastName, date);

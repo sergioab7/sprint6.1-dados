@@ -6,13 +6,12 @@ export const getAllPlayer = async(req:Request, res:Response) => {
     try {
         const getAllPlayers = await GetPlayer.getAllPlayers();
 
-        res.status(201).json({
+        return res.status(201).json({
             getAllPlayers
         });
         
     } catch (error) {
-        console.error(error);
-        res.status(500).json({
+        return res.status(500).json({
             msg:'[-] Error 500 - Internal Server Error'
         })
     }
@@ -29,8 +28,7 @@ export const getOnePlayer = async(req:Request, res:Response) => {
         })
 
     } catch (error) {
-        console.error(error);
-        res.status(500).json({
+        return res.status(500).json({
             msg:'[-] Error 500 - Internal Server Error'
         })
     }
@@ -44,14 +42,14 @@ export const updateName = async(req:Request, res:Response) => {
         const updatePlayerName = await new UpdatePlayerName(id, firstName, lastName);
         await updatePlayerName.updateName()
 
-        res.status(201).json({
+        return res.status(201).json({
             msg:'[+] Player Updated',
             updatePlayerName,
         })
 
     } catch (error) {
         console.error(error);
-        res.status(400).json({
+        return res.status(400).json({
             msg:'[-] Player doesnt exists'
         })
     }
@@ -63,13 +61,13 @@ export const deletePlayer = async(req:Request, res:Response) => {
         const player = await new GetPlayer(id);
 
         player.getAndDelete();
-        res.status(201).json({
+        return res.status(201).json({
             msg:"[+] Player deleted",
             player
         })
     } catch (error) {
         console.error(error);
-        res.status(400).json({
+        return res.status(400).json({
             msg:'[-] Player doesnt exists'
         })
     }
