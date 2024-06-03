@@ -7,7 +7,7 @@ const router = Router();
 /*Listado de todos los jugadores*/
 router.get('/players', validateToken, getAllPlayer);
 
-/*Elimina las tiradas del jugador*/
+/*Elimina al jugador*/
 router.delete('/players/:id', validateToken, deletePlayer);
 
 /* Modifica el nombre del jugador*/

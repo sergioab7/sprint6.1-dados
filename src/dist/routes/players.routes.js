@@ -6,7 +6,7 @@ const validateJWT_1 = require("../middlewares/validateJWT");
 const router = (0, express_1.Router)();
 /*Listado de todos los jugadores*/
 router.get('/players', validateJWT_1.validateToken, players_controller_1.getAllPlayer);
-/*Elimina las tiradas del jugador*/
+/*Elimina al jugador*/
 router.delete('/players/:id', validateJWT_1.validateToken, players_controller_1.deletePlayer);
 /* Modifica el nombre del jugador*/
 router.put('/players/:id', validateJWT_1.validateToken, players_controller_1.updateName);

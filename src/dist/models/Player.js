@@ -18,20 +18,16 @@ const bcryptjs_1 = __importDefault(require("bcryptjs"));
 const PlayerSchema = new mongoose_1.Schema({
     firstName: {
         type: String,
-        required: [true, 'El primer nombre es requerido']
     },
     lastName: {
         type: String,
-        required: [true, 'El apellido es requerido']
     },
     email: {
         type: String,
-        required: [true, 'El email es requerido'],
-        unique: true,
+        unique: false,
     },
     password: {
         type: String,
-        required: [true, 'La contraseña es requerida'],
     },
     date: String,
     totalGames: {

@@ -12,8 +12,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.login = exports.register = void 0;
+exports.anonymous = exports.login = exports.register = void 0;
 const auth_1 = __importDefault(require("../helpers/auth"));
+const short_uuid_1 = __importDefault(require("short-uuid"));
+const authAnon_1 = require("../helpers/authAnon");
 const register = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { firstName, lastName, email, password } = req.body;
@@ -43,12 +45,12 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const login = yield player.login();
         if (login === 'Wrong email') {
             return res.status(400).json({
-                msg: '[-] Email es incorrecto.'
+                msg: '[-] Password o Email es incorrecto.'
             });
         }
         if (login === 'Password incorrecta') {
             return res.status(400).json({
-                msg: '[-] Password es incorrecto.'
+                msg: '[-] Password o Email es incorrecto.'
             });
         }
         res.status(201).json({
@@ -63,3 +65,29 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 exports.login = login;
+const anonymous = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { firstName } = req.body;
+        if (firstName == "anonymous") {
+            const date = new Date();
+            const shortGenerate = (0, short_uuid_1.default)();
+            const emailUUID = shortGenerate.new() + "@gmail.com";
+            const anonymous = new authAnon_1.AuthAnon(firstName, date, emailUUID);
+            const logAnon = yield anonymous.logAnon();
+            return res.status(200).json({
+                jwt: logAnon
+            });
+        }
+        else {
+            res.status(400).json({
+                msg: '[-] Password o Email es incorrecto.'
+            });
+        }
+    }
+    catch (error) {
+        return res.status(500).json({
+            err: 'Error'
+        });
+    }
+});
+exports.anonymous = anonymous;

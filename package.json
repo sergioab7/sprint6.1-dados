@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node src/dist/app.js",
     "dev": "nodemon src/dist/app.js",
-    "build":"tsc"
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
@@ -17,7 +17,8 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.3.3"
+    "mongoose": "^8.3.3",
+    "short-uuid": "^5.2.0"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",

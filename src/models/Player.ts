@@ -7,20 +7,17 @@ import bcryptjs from "bcryptjs";
 const PlayerSchema = new Schema({
     firstName:{
         type:String,
-        required:[true, 'El primer nombre es requerido']
     },
     lastName:{
         type:String,
-        required:[true, 'El apellido es requerido']
     },
     email:{
         type:String,
-        required:[true, 'El email es requerido'],
-        unique:true,
+        unique:false,
     },
     password:{
         type:String,
-        required:[true, 'La contraseña es requerida'],
+
     },
     date:String,
     totalGames:{

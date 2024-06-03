@@ -1,5 +1,7 @@
 import { Request, Response } from "express";
 import Auth from "../helpers/auth";
+import shortUUID from "short-uuid";
+import { AuthAnon } from "../helpers/authAnon";
 
 export const register = async(req:Request, res:Response) => {
     try {
@@ -32,13 +34,13 @@ export const login = async(req:Request, res:Response) => {
         const login = await player.login();
         if(login ==='Wrong email'){
             return res.status(400).json({
-                msg:'[-] Email es incorrecto.'
+                msg:'[-] Password o Email es incorrecto.'
             })
         }
 
         if(login==='Password incorrecta'){
             return res.status(400).json({
-                msg:'[-] Password es incorrecto.'
+                msg:'[-] Password o Email es incorrecto.'
             })
         }
 
@@ -52,3 +54,31 @@ export const login = async(req:Request, res:Response) => {
         })
     }
 };
+
+
+export const anonymous = async(req:Request, res:Response) => {
+    try {
+        const { firstName } = req.body;
+
+        if(firstName=="anonymous"){
+            const date = new Date();
+            const shortGenerate = shortUUID();
+            const emailUUID = shortGenerate.new() + "@gmail.com"
+
+            const anonymous = new AuthAnon(firstName, date, emailUUID);
+            const logAnon = await anonymous.logAnon();
+
+            return res.status(200).json({
+                jwt:logAnon
+            })
+        }else{
+            res.status(400).json({
+                msg:'[-] Password o Email es incorrecto.'
+            })
+        }
+    } catch (error) {
+        return res.status(500).json({
+            err:'Error'
+        })
+    }
+}
