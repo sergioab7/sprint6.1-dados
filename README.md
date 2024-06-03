@@ -69,6 +69,12 @@ docker ps
 
 ## Funcionamiento de forma ANÓNIMA
 1. Debes loguearte
+	![Captura desde 2024-06-03 11-11-26](https://github.com/sergioab7/sprint6.1-dados/assets/10132565/407b6520-9ad5-49b5-b64c-266659c1102b)
+
+2. Asegúrate de coger la clave JWT y ponerla en authorization.
+   	![imagen](https://github.com/sergioab7/sprint6.1-dados/assets/10132565/69476e61-f17a-4da5-ad25-1a02291831f0)
+
+3. Asegúrate de poner la clave JWT en todas las rutas que requieran autenticación. Listo. 
 
    
 (IT Academy dice /posts para registro, pero yo he hecho registro y login)
