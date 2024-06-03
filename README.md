@@ -78,6 +78,15 @@ http://localhost:3000/login
 ```
 
 
+_Login de Forma Anonima! - POST_
+```
+http://localhost:3000/anonymous
+{
+	"firstName":"anonymous"  // ¡Ojo! Debes poner anonymous, si pones otro nombre no te dejará!
+}
+```
+
+
 _Obtener todos los jugadores - GET_
 ```
 http://localhost:3000/players/
@@ -86,14 +95,14 @@ _Obtener un jugador - GET_
 ```
 http://localhost:3000/player/:id
 ```
-_Actualizar nombre y apellido de un jugador - PUT_
+_Actualizar nombre y apellido de un jugador - PUT_  // No funciona en anonymous
 ```
 http://localhost:3000/players/:id
 {
-   {
+   
 	"firstName":"ejemplo_firstname",
 	"lastName":"ejemplo_lastname"
-}
+
 }
 ```
 _Borrar jugador - DELETE_
