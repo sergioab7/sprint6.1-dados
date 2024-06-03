@@ -54,7 +54,7 @@ docker ps
 
 ### Rutas de la aplicación 🚏
 
-## Funcionamiento
+## Funcionamiento con AUTENTICACIÓN
 1. Debes registrarte
    ![Captura desde 2024-05-27 17-37-00](https://github.com/sergioab7/sprint6.1-dados/assets/10132565/0c889a67-6b6c-4009-9f20-a1f4acec3cd6)
 
@@ -65,6 +65,10 @@ docker ps
 ![Captura desde 2024-05-27 17-38-14](https://github.com/sergioab7/sprint6.1-dados/assets/10132565/5fc04c3d-082f-4dd6-a7ca-6488166d05ad)
 
 4. Ya puedes jugar/probar la app
+
+
+## Funcionamiento de forma ANÓNIMA
+1. Debes loguearte
 
    
 (IT Academy dice /posts para registro, pero yo he hecho registro y login)
